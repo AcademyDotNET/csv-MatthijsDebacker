@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UitlezenCSV", "UitlezenCSV\UitlezenCSV.csproj", "{CA4B9E38-545F-4914-A34A-D894DFA42D3D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA4B9E38-545F-4914-A34A-D894DFA42D3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA4B9E38-545F-4914-A34A-D894DFA42D3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA4B9E38-545F-4914-A34A-D894DFA42D3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA4B9E38-545F-4914-A34A-D894DFA42D3D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0FEBD92C-2175-49E2-BBB2-C0AE9513274A}
+	EndGlobalSection
+EndGlobal
