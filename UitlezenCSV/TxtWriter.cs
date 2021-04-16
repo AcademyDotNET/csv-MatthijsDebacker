@@ -9,9 +9,21 @@ namespace UitlezenCSV
 {
     class TxtWriter
     {
-        public static void Write2DArrayToTXT(string[,] arr, string path, string name)
+        public static void Write2DArrayToTXT(string[,] arr, int[] columns, string path, string name)
         {
             string filePath = $@"{path}{name}";
+            int[] padding = new int[arr.GetLength(1)];
+
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                for (int j = 0; j < arr.GetLength(1); j++)
+                {
+                    if(arr[i,j].Length > padding[j])
+                    {
+                        padding[j] = arr[i, j].Length;
+                    }
+                }
+            }
 
             using(StreamWriter streamWriter = new StreamWriter(filePath))
             {
@@ -19,7 +31,10 @@ namespace UitlezenCSV
                 {
                     for (int j = 0; j < arr.GetLength(1); j++)
                     {
-                        streamWriter.Write($"{arr[i,j]}\t");
+                        if(columns[j] == 1)
+                        {
+                            streamWriter.Write($"{arr[i,j].PadRight(padding[j])}\t");
+                        }
                     }
                     streamWriter.WriteLine("");
                 }
