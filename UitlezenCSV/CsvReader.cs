@@ -12,8 +12,19 @@ namespace UitlezenCSV
     {
         public static string[,] ReadCSV(string path)
         {
-            StreamReader streamReader = new StreamReader(path);
-            string file = streamReader.ReadToEnd();
+            StreamReader streamReader = null;
+            string file = "";
+            try
+            {
+                streamReader = new StreamReader(path);
+                file = streamReader.ReadToEnd();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Could not read the file at {path}");
+                Console.WriteLine(e.Message);
+            }
+
             string[] lines = file.Split("\n");
             string[] header = lines[0].Split(",");
             string[,] data = new string[lines.Length - 1,header.Length];
@@ -27,8 +38,11 @@ namespace UitlezenCSV
                 }
             }
 
-            streamReader.Close();
-            streamReader.Dispose();
+            if (streamReader != null)
+            {
+                streamReader.Close();
+                streamReader.Dispose();
+            }
 
             return data;
         }

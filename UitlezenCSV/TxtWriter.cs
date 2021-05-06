@@ -25,19 +25,27 @@ namespace UitlezenCSV
                 }
             }
 
-            using(StreamWriter streamWriter = new StreamWriter(filePath))
+            try
             {
-                for (int i = 0; i < arr.GetLength(0); i++)
+                using (StreamWriter streamWriter = new StreamWriter(filePath))
                 {
-                    for (int j = 0; j < arr.GetLength(1); j++)
+                    for (int i = 0; i < arr.GetLength(0); i++)
                     {
-                        if(columns[j] == 1)
+                        for (int j = 0; j < arr.GetLength(1); j++)
                         {
-                            streamWriter.Write($"{arr[i,j].PadRight(padding[j])}\t");
+                            if (columns[j] == 1)
+                            {
+                                streamWriter.Write($"{arr[i, j].PadRight(padding[j])}\t");
+                            }
                         }
+                        streamWriter.WriteLine("");
                     }
-                    streamWriter.WriteLine("");
                 }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Could not write to file at {filePath}");
+                Console.WriteLine(e.Message);
             }
         }
     }
